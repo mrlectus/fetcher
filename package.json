@@ -1,0 +1,17 @@
+{
+  "name": "@mrlectus/fetcher",
+  "version": "1.0.0",
+  "description": "A wrapper for fetch",
+  "main": "./lib/main.js",
+  "type": "module",
+  "types": "./lib/main.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mrlectus",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node16": "^16.1.3",
+    "@types/node": "^22.3.0"
+  }
+}
