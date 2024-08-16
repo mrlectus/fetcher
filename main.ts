@@ -28,7 +28,7 @@ type ResponseHeaders = RequestInit["headers"] &
     Accept: "application/json" | "text/plain" | "text/html" | "image/png";
   }>;
 
-type ValidUrl = `http://${string}` | `https://${string}`;
+export type ValidUrl = `http://${string}` | `https://${string}`;
 export const fetcher = async <T>({
   baseUrl,
   token,
