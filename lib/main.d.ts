@@ -1,5 +1,5 @@
 type Mutation = "POST" | "PUT" | "DELETE" | "PATCH";
-export type ValidUrl = `http://${string}` | `https://${string}`;
+type ValidUrl = `http://${string}` | `https://${string}`;
 export declare const fetcher: <T>({ baseUrl, token, }: {
     baseUrl: ValidUrl;
     token?: string;
