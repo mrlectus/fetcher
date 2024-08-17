@@ -1,3 +1,5 @@
+import { match } from "ts-pattern";
+
 declare function fetch<T = any>(
   input: RequestInfo | URL,
   init?: ExtendedRequestInit,
@@ -52,17 +54,27 @@ export const fetcher = async <T>({
 export const mutation = async <T>({
   baseUrl,
   token,
-  method,
+  method = "POST",
+  payload,
 }: {
   baseUrl: ValidUrl;
   token?: string;
   method: Mutation;
+  payload: RequestInit["body"];
 }) => {
   const response = await fetch<T>(baseUrl, {
     method,
     headers: {
       Authorization: `Bearer ${token}`,
     },
+    body: match(Object.prototype.toString.call(payload))
+      .with("[object Object]", () => JSON.stringify(payload))
+      .with("[object Map]", () => JSON.stringify(payload))
+      .with("[object Array]", () => JSON.stringify(payload))
+      .with("[object FormData]", () => payload)
+      .otherwise(() => {
+        throw new Error("Invalid payload");
+      }),
   });
   if (!response.ok) {
     throw new Error("Failed to perform mutation");
