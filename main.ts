@@ -66,6 +66,7 @@ export const mutation = async <T>({
     method,
     headers: {
       Authorization: `Bearer ${token}`,
+      ContentType: "application/json",
     },
     body: match(Object.prototype.toString.call(payload))
       .with("[object Object]", () => JSON.stringify(payload))

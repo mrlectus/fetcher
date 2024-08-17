@@ -1,7 +1,7 @@
 {
   "name": "@mrlectus/fetcher",
   "version": "1.0.3",
-  "description": "A wrapper for fetch",
+  "description": "My wrapper for fetch",
   "main": "./lib/main.js",
   "type": "module",
   "types": "./lib/main.d.ts",
